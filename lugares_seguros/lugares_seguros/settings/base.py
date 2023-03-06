@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     # local apps:
     'initial',
     'places'
+    'comments',
 ]
 
 MIDDLEWARE = [
