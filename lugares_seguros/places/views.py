@@ -3,8 +3,8 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework import status
-from.models import Place
-from.serializers import PlaceSerializer
+from .models import Place
+from.serializers import PlaceSerializers
 
 # Create your views here.
 
@@ -20,7 +20,7 @@ class PlaceAPIView(APIView):
             request.data['image'] = file
         except KeyError:
             file = None  
-        serializer = PlaceSerializer(data=request.data)
+        serializer = PlaceSerializers(data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)

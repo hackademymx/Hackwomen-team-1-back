@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from models import Place
+from .models import Place
 
 
 class PlaceSerializers(serializers.ModelSerializer):
