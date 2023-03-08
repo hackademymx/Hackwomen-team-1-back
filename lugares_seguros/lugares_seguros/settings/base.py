@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'initial',
     'places',
     'comments',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -90,10 +91,10 @@ WSGI_APPLICATION = 'lugares_seguros.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'dccq3t873vg5me',
-        'USER': 'srhsuhgyeceyvz',
-        'HOST': 'ec2-3-217-251-77.compute-1.amazonaws.com',
-        'PASSWORD': 'f5b85301b8de3db389c0652cd4caa2b2acfd3a52fcfcc4d283bff2b856659b68',
+        'NAME': 'db35trvdfu8el9',
+        'USER': 'priuindivmgqsa',
+        'HOST': 'ec2-18-204-142-254.compute-1.amazonaws.com',
+        'PASSWORD': 'b8bca417f2983bdcb3c478d505ba6c188c43faa0cf83a157338da38670de1e8e',
         'PORT': 5432
     }
 }
