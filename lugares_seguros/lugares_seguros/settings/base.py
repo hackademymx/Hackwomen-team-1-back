@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'rest_framework',
     # local apps:
     'initial',
-    'places'
+    'places',
+    'listado_de_lugares',
 ]
 
 MIDDLEWARE = [
@@ -78,12 +79,23 @@ WSGI_APPLICATION = 'lugares_seguros.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+#DATABASES = {
+ #   'default': {
+  #      'ENGINE': 'django.db.backends.sqlite3',
+   #     'NAME': BASE_DIR / 'db.sqlite3',
+    #}
+#}
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgressql',
+        'NAME': 'db35trvdfu8el9',
+        'USER': 'priuindvmgqsa',
+        'HOST' : 'ec2-18-204-142-254.compute-1.amazonaws.com',
+        'PASSWORD':'b8bca417f2983bdcb3c478d505ba6c188c43faa0cf83a157338da38670de1e8e',
+        'PORT': 5432 
     }
 }
+
 
 
 # Password validation
