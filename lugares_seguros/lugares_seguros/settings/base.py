@@ -142,3 +142,7 @@ REST_FRAMEWORK = {
         'rest_framework.renderers.JSONRenderer',
     ]
 }
+
+#media
+MEDIA_URL = '/media/' #media_url es el directorio donde se va a guardar la media 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') #donde está el directorio base del servidor se va a crear una carpeta llamada media (MEDIA_URL)

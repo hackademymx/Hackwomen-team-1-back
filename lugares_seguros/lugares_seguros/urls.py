@@ -15,8 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('' , include('initial.urls')), 
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) #Con esta línea le digo al servidor django que cuando nos manden un media_url, que acceda al documento media_root (que es una carpeta en la que se pueden mandar imágenes). va a empezar a existir cuando agreguemos una imagen al servidor o se puede hacer de forma manual 
+
