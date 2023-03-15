@@ -1,7 +1,6 @@
 from django.db import models
 
 # Create your models here.
-<<<<<<< HEAD
 
 class User(models.Model): 
     
@@ -21,5 +20,3 @@ def __str__(self):
 #ahora vamos a referenciar la primary key aquí(ver línea 6), según el diagrama de relaciones, la relación places-comment es 1:N 
 #foreign key debe llevar dos argumentos principalmente: ('self', on_delete) on_delete indica qué va a suceder cuando se elimine la instanacia padre, osea, 
 #qué va a pasar cuando se elimine un place. aquí utilizaremos cascada, por lo que se eliminara en automático el comentario
-=======
->>>>>>> b90613e8ab3811348bf34a27e57a3f3b724c9d1f
