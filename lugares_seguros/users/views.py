@@ -10,6 +10,8 @@ from rest_framework.response import Response
 from rest_framework import status
 from .serializers import RegisterUserSerializer
 from .serializers import LoginUserSerializer
+from places.models import Place
+
 
 # Create your views here.
 
@@ -42,3 +44,5 @@ class LoginUserView(APIView):
          }
 
          return Response(data, status=status.HTTP_200_OK)
+    
+
