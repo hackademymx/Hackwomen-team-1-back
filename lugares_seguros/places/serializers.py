@@ -1,12 +1,8 @@
 #serializers va en plural, ahora vamos a importar el serializador desde rest_framework
 from rest_framework import serializers
-<<<<<<< HEAD
 #ahora debemos importar el modelo que acabamos de crear
 from .models import Place
 #el punto es para indicarle que de ese directorio vamos a traer nuestra clase creada, que es Place
-=======
-from .models import Place
->>>>>>> b90613e8ab3811348bf34a27e57a3f3b724c9d1f
 
 #ahora vamos a definir el serializador con una clase. las buenas prácticas dicen que debemos agregarle, además del nombre del modelo (Place), la palabra "serializer" para no confundirnos con los nombres al momento de invocar
 
