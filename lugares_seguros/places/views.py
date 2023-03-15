@@ -33,8 +33,6 @@ class PlaceAPIDeleteView(APIView):
             return Response({'error': 'Bad request'}, status = status.HTTP_400_BAD_REQUEST)
         place.delete()
         return Response({'message': 'lugar eliminado correctamente'}, status = status.HTTP_200_OK)
->>>>>>> Stashed changes
-=======
 
 
 class PlaceAPIView(APIView):
