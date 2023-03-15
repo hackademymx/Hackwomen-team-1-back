@@ -8,9 +8,6 @@ from .models import Place
 from .serializers import PlaceSerializer
 from rest_framework.parsers import MultiPartParser, FormParser
 
-        places = Place.objects.all()
-        serializer = PlaceSerializer(places,many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK)
    
     
 
