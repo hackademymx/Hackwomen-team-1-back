@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'initial',
     'places',
     'users',
-    'coments',
+    'comments',
 ]
 
 MIDDLEWARE = [
