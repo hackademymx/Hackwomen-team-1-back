@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 import os
 from pathlib import Path
+from decouple import config, Csv
+
+ENV = config('ENV', default='dev')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,12 +23,25 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-0ava+=n5(v@9rjk)$27b6q0mm@$f%8w(k7jll#%_1#2-+86%kq'
+SECRET_KEY = config('DJANGO_SECRET_KEY', default='change_this_in_production!')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', default=False, cast=bool)
 
+<<<<<<< HEAD
 ALLOWED_HOSTS = ['*']
+=======
+ALLOWED_HOSTS = config('DJANGO_ALLOWED_HOSTS', cast=Csv(), default='*')
+
+
+CORS_ALLOW_ALL_ORIGINS = config('CORS_ALLOW_ALL_ORIGINS', default=False, cast=bool)
+
+CORS_ALLOWED_ORIGINS = config('CORS_ALLOWED_ORIGINS', cast=Csv(), default='')
+
+CSRF_TRUSTED_ORIGINS = config('CSRF_TRUSTED_ORIGINS', cast=Csv(), default='')
+
+CSRF_COOKIE_SECURE = config('CSRF_COOKIE_SECURE', default=False, cast=bool)
+>>>>>>> 6b4aa7c758a515224a7879d686d3a001e470bd25
 
 
 # Application definition
@@ -80,21 +96,29 @@ WSGI_APPLICATION = 'lugares_seguros.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+<<<<<<< HEAD
 #DATABASES = {
 #    'default': {
 #        'ENGINE': 'django.db.backends.sqlite3',
 #        'NAME': BASE_DIR / 'db.sqlite3',
 #    }
 #}
+=======
+PG_DB = config('POSTGRES_DB', default='')
+PG_USER = config('POSTGRES_USER', default='')
+PG_PASSWD = config('POSTGRES_PASSWORD', default='')
+PG_HOST = config('POSTGRES_HOST', default='127.0.0.1')
+PG_PORT = config('POSTGRES_PORT', cast=int, default=5432)
+>>>>>>> 6b4aa7c758a515224a7879d686d3a001e470bd25
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'db35trvdfu8el9',
-        'USER': 'priuindivmgqsa',
-        'HOST': 'ec2-18-204-142-254.compute-1.amazonaws.com',
-        'PASSWORD': 'b8bca417f2983bdcb3c478d505ba6c188c43faa0cf83a157338da38670de1e8e',
-        'PORT': 5432
+        'NAME': PG_DB,
+        'USER': PG_USER,
+        'PASSWORD': PG_PASSWD,
+        'HOST': PG_HOST,
+        'PORT': PG_PORT,
     }
 }
 # Password validation
