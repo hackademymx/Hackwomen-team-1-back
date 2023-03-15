@@ -9,6 +9,10 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
+<<<<<<< HEAD
+=======
+
+>>>>>>> b90613e8ab3811348bf34a27e57a3f3b724c9d1f
 import os
 from pathlib import Path
 
@@ -42,8 +46,13 @@ INSTALLED_APPS = [
     # local apps:
     'initial',
     'places',
+<<<<<<< HEAD
     'users',
     'coments',
+=======
+    'comments',
+    'users',
+>>>>>>> b90613e8ab3811348bf34a27e57a3f3b724c9d1f
 ]
 
 MIDDLEWARE = [
@@ -85,7 +94,11 @@ WSGI_APPLICATION = 'lugares_seguros.wsgi.application'
 #        'ENGINE': 'django.db.backends.sqlite3',
 #        'NAME': BASE_DIR / 'db.sqlite3',
 #    }
+<<<<<<< HEAD
 #}
+=======
+# }
+>>>>>>> b90613e8ab3811348bf34a27e57a3f3b724c9d1f
 
 DATABASES = {
     'default': {
@@ -144,7 +157,13 @@ REST_FRAMEWORK = {
         'rest_framework.renderers.JSONRenderer',
     ]
 }
+<<<<<<< HEAD
 
 #media
 MEDIA_URL = '/media/' #media_url es el directorio donde se va a guardar la media 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media') #donde está el directorio base del servidor se va a crear una carpeta llamada media (MEDIA_URL)
+=======
+# Media
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+>>>>>>> b90613e8ab3811348bf34a27e57a3f3b724c9d1f
