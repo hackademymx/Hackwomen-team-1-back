@@ -1,14 +1,15 @@
-<<<<<<< HEAD
+
 from django.shortcuts import render
 
 # Create your views here.
-=======
+
 from django.contrib.auth import authenticate
 from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from .serializers import RegisterUserSerializer
+from .serializers import LoginUserSerializer
 
 # Create your views here.
 
@@ -41,4 +42,3 @@ class LoginUserView(APIView):
          }
 
          return Response(data, status=status.HTTP_200_OK)
->>>>>>> b90613e8ab3811348bf34a27e57a3f3b724c9d1f
