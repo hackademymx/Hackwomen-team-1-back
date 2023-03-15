@@ -41,7 +41,9 @@ INSTALLED_APPS = [
     'rest_framework',
     # local apps:
     'initial',
-    'places'
+    'places',
+    'users',
+    'coments',
 ]
 
 MIDDLEWARE = [
