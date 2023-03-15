@@ -50,4 +50,4 @@ class PlaceAPIView(APIView):
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
->>>>>>> b90613e8ab3811348bf34a27e57a3f3b724c9d1f
+
