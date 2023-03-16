@@ -13,3 +13,14 @@ class CommentView(APIView):
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+class CommentAPIUpdateView(APIView):
+
+   def patch(self, request, id):
+      comment = Comment.objects.filter(id=id).first
+      if not comment:
+         return Response({'error': 'Bad request'}, status=status.HTTP_400_BAD_REQUEST)
+      serializer = CommentSerializers(comment, data=request.data, partial=True)
+      serializer.is_valid(raise_exception=True)
+      serializer.save()
+      return Response(serializer.data, status=status.HTTP_200_OK)
