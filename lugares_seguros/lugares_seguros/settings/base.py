@@ -28,20 +28,7 @@ SECRET_KEY = config('DJANGO_SECRET_KEY', default='change_this_in_production!')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-<<<<<<< HEAD
 ALLOWED_HOSTS = ['*']
-=======
-ALLOWED_HOSTS = config('DJANGO_ALLOWED_HOSTS', cast=Csv(), default='*')
-
-
-CORS_ALLOW_ALL_ORIGINS = config('CORS_ALLOW_ALL_ORIGINS', default=False, cast=bool)
-
-CORS_ALLOWED_ORIGINS = config('CORS_ALLOWED_ORIGINS', cast=Csv(), default='')
-
-CSRF_TRUSTED_ORIGINS = config('CSRF_TRUSTED_ORIGINS', cast=Csv(), default='')
-
-CSRF_COOKIE_SECURE = config('CSRF_COOKIE_SECURE', default=False, cast=bool)
->>>>>>> 6b4aa7c758a515224a7879d686d3a001e470bd25
 
 
 # Application definition
@@ -96,20 +83,20 @@ WSGI_APPLICATION = 'lugares_seguros.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-<<<<<<< HEAD
+
 #DATABASES = {
 #    'default': {
 #        'ENGINE': 'django.db.backends.sqlite3',
 #        'NAME': BASE_DIR / 'db.sqlite3',
 #    }
 #}
-=======
+
 PG_DB = config('POSTGRES_DB', default='')
 PG_USER = config('POSTGRES_USER', default='')
 PG_PASSWD = config('POSTGRES_PASSWORD', default='')
 PG_HOST = config('POSTGRES_HOST', default='127.0.0.1')
 PG_PORT = config('POSTGRES_PORT', cast=int, default=5432)
->>>>>>> 6b4aa7c758a515224a7879d686d3a001e470bd25
+
 
 DATABASES = {
     'default': {
