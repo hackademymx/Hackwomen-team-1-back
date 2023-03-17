@@ -12,6 +12,11 @@ class PlaceAPIView(APIView):
 
     parser_classes = (MultiPartParser, FormParser)
 
+    def get(self,request):
+        places = Place.objects.all()
+        serializer = PlaceSerializers(places, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
     def post(self, request):
         print(request.data)
         try:
