@@ -29,7 +29,7 @@ class PlaceAPIView(APIView):
         serializer = PlaceSerializers(places, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
-
+class PlaceAPIUpdateDeleteView(APIView):
 
     def patch(self, request):
         place=Place.objects.filter(id=request.data.id)
