@@ -24,3 +24,12 @@ class PlaceAPIView(APIView):
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
+
+    def patch(self, request):
+        place=Place.objects.filter(id=request.data.id)
+        if place is None:
+            return Response({'error': 'Bad request'}, status=status.HTTP_400_BAD_REQUEST)
+        serializer = PlaceSerializers(place, data=request.data, partial=True)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_200_OK)
