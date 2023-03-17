@@ -24,3 +24,14 @@ class PlaceAPIView(APIView):
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
+class PlaceAPIUpdateDeleteView(APIView):
+
+    def delete(self, request, id):
+        place= Place.objects.filter(id=id).first()
+        if place is None:
+            return Response({'error': 'Bad request'}, status= status.HTTP_400_BAD_REQUEST)
+        place.delete()
+        return Response({'message': 'lugar eliminado satisfactoriamente'}, status = status.HTTP_200_0K)
+    
+    
+
