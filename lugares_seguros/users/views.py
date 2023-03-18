@@ -21,19 +21,9 @@ class RegisterUserView(APIView):
 class LoginUserView(APIView):
     
       def post(self, request):
-         serializer = LoginUserSerializer(data=request.data)
-         serializer.is_valid(raise_exception=True)
-         username = serializer.data["username"]
-         password = serializer.data["password"]
-         
-         user = authenticate(username = username, password = password)
-
-         if username is None:
-             return Response({"error":"Credenciales inválidas."}, status=status.HTTP_400_BAD_REQUEST)
          
          data = {
-             'id': user.id,
-             'username': user.username
+             'id': ''
          }
 
          return Response(data, status=status.HTTP_200_OK)
