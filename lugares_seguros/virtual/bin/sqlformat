@@ -1,4 +1,10 @@
+<<<<<<< HEAD
+#!/bin/sh
+'''exec' "/home/miriamfelipe/hackademy lugares seguros/Hackwomen-team-1-back/lugares_seguros/virtual/bin/python" "$0" "$@"
+' '''
+=======
 #!/home/noppo/Documents/Hack/Hackwomen-team-1-back/lugares_seguros/virtual/bin/python3
+>>>>>>> 185d4395d98364163e2b7e9e75e963d09e9c30ad
 # -*- coding: utf-8 -*-
 import re
 import sys

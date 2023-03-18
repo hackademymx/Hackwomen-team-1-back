@@ -3,6 +3,9 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework import status
+from .models import Place
+from .serializers import PlaceSerializers
+from django.shortcuts import get_object_or_404
 from .models import Place 
 from.serializers import PlaceSerializers
 
@@ -30,6 +33,7 @@ class PlaceAPIView(APIView):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 class PlaceAPIUpdateDeleteView(APIView):
+    
 
     def patch(self, request, id):
         place = Place.objects.filter(id=id).first()
@@ -40,3 +44,16 @@ class PlaceAPIUpdateDeleteView(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+    #def delete(self, request, id):
+        #place = get_object_or_404(Place, id=id).first()
+        #place.delete()
+        #return Response({'mensaje': 'Lugar eliminado correctamente'}, status=status.HTTP_200_0K)
+
+    def delete(self, request, id):
+        place = Place.objects.filter(id=id).filter()
+        if place is None:
+            return Response({'error': 'Bad request'}, status=status.HTTP_400_BAD_REQUEST)
+        place.delete()
+        return Response({'mesage': 'lugar eliminado satisfactoriamente'}, status=status.HTTP_200_OK)
+    
