@@ -25,12 +25,7 @@ class PlaceAPIView(APIView):
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
-    def get(self, request):
-        places = Place.objects.all()
-        serializer =PlaceSerializers(places, many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK)
    
-
 
 class PlaceAPIUpdateDeleteView(APIView):
 
