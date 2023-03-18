@@ -31,8 +31,8 @@ class PlaceAPIView(APIView):
 
 class PlaceAPIUpdateDeleteView(APIView):
 
-    def patch(self, request):
-        place=Place.objects.filter(id=request.data.id)
+    def patch(self, request, id):
+        place = Place.objects.filter(id=id).first()
         if place is None:
             return Response({'error': 'Bad request'}, status=status.HTTP_400_BAD_REQUEST)
         serializer = PlaceSerializers(place, data=request.data, partial=True)
