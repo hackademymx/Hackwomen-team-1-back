@@ -45,8 +45,15 @@ class PlaceAPIUpdateDeleteView(APIView):
             return Response(serializer.data, status=status.HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
+    #def delete(self, request, id):
+        #place = get_object_or_404(Place, id=id).first()
+        #place.delete()
+        #return Response({'mensaje': 'Lugar eliminado correctamente'}, status=status.HTTP_200_0K)
+
     def delete(self, request, id):
-        place = get_object_or_404(Place, id=id)
+        place = Place.objects.filter(id=id).filter()
+        if place is None:
+            return Response({'error': 'Bad request'}, status=status.HTTP_400_BAD_REQUEST)
         place.delete()
-        return Response({'lugar eliminado'}, status=status.HTTP_200_0K)
+        return Response({'mesage': 'lugar eliminado satisfactoriamente'}, status=status.HTTP_200_OK)
     
