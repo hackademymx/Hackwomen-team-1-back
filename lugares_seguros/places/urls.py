@@ -5,5 +5,5 @@ from .views import PlaceAPIUpdateDeleteView
 
 urlpatterns = [
     path('', PlaceAPIView.as_view()),
-    path('', PlaceAPIUpdateDeleteView.as_view())
+    path('<int:id>/', PlaceAPIUpdateDeleteView.as_view())
     ]
