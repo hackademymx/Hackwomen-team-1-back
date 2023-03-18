@@ -3,7 +3,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework import status
-from .models import Place
+from .models import Place 
 from.serializers import PlaceSerializers
 
 # Create your views here.
@@ -32,10 +32,11 @@ class PlaceAPIView(APIView):
 class PlaceAPIUpdateDeleteView(APIView):
 
     def patch(self, request, id):
-        place = Place.objects.filter(id=id).first()
-        if place is None:
+        places = Place.objects.filter(id=id).first()
+        if places is None:
             return Response({'error': 'Bad request'}, status=status.HTTP_400_BAD_REQUEST)
-        serializer = PlaceSerializers(place, data=request.data, partial=True)
-        serializer.is_valid(raise_exception=True)
-        serializer.save()
-        return Response(serializer.data, status=status.HTTP_200_OK)
+        serializer = PlaceSerializers(places, data=request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
