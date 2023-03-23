@@ -1,0 +1,10 @@
+version: '3.4'
+
+services:
+  hackwomenteam1back:
+    image: hackwomenteam1back
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 8000:8000
