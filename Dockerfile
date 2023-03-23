@@ -10,8 +10,14 @@ ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
 # Install pip requirements
-COPY requirements.txt .
+COPY lugares_seguros/requirements.txt .
 RUN python -m pip install -r requirements.txt
+
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+
+# Required in Windows and MAC OS to run the entrypoint.sh script
+RUN sed -i 's/\r$//' /usr/local/bin/entrypoint.sh \
+    && chmod 744 /usr/local/bin/entrypoint.sh
 
 WORKDIR /app
 COPY . /app
@@ -22,4 +28,6 @@ RUN adduser -u 5678 --disabled-password --gecos "" appuser && chown -R appuser /
 USER appuser
 
 # During debugging, this entry point will be overridden. For more information, please refer to https://aka.ms/vscode-docker-python-debug
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "lugares_seguros.wsgi"]
+#CMD ["gunicorn", "--bind", "0.0.0.0:8000", "lugares_seguros.wsgi"]
+ENTRYPOINT [ "/usr/local/bin/entrypoint.sh" ]
+CMD ["gunicorn", "lugares_seguros.wsgi"]
