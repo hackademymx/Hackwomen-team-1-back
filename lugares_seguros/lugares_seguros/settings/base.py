@@ -46,7 +46,7 @@ CSRF_TRUSTED_ORIGINS = config('CSRF_TRUSTED_ORIGINS', cast=Csv(), default='')
 
 CSRF_COOKIE_SECURE = config('CSRF_COOKIE_SECURE', default=False, cast=bool)
 
-
+os.environ["DJANGO_SETTINGS_MODULE"] = "lugares_seguros.settings" 
 
 # Application definition
 
