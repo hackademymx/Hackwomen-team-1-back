@@ -2,7 +2,7 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
-
+from lugares_seguros.settings.base import *
 
 def main():
     """Run administrative tasks."""
