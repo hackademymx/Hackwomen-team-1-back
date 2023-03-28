@@ -5,9 +5,8 @@ from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework import status
 from .models import Place
 from .serializers import PlaceSerializers
-from django.shortcuts import get_object_or_404
 from .models import Place 
-from.serializers import PlaceSerializers
+from .serializers import PlaceSerializers
 
 # Create your views here.
 
@@ -45,11 +44,7 @@ class PlaceAPIUpdateDeleteView(APIView):
             return Response(serializer.data, status=status.HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
-    #def delete(self, request, id):
-        #place = get_object_or_404(Place, id=id).first()
-        #place.delete()
-        #return Response({'mensaje': 'Lugar eliminado correctamente'}, status=status.HTTP_200_0K)
-
+   
     def delete(self, request, id):
         place = Place.objects.filter(id=id).filter()
         if place is None:
