@@ -47,6 +47,8 @@ CSRF_TRUSTED_ORIGINS = config('CSRF_TRUSTED_ORIGINS', cast=Csv(), default='')
 
 CSRF_COOKIE_SECURE = config('CSRF_COOKIE_SECURE', default=False, cast=bool)
 
+DJANGO_SETTINGS_MODULE = config('DJANGO_SETTINGS_MODULE', default='') ##########################
+
 
 # Application definition
 
@@ -78,6 +80,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'lugares_seguros.urls'
+
 
 TEMPLATES = [
     {
