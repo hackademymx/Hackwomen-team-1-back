@@ -13,7 +13,6 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 import os
 from pathlib import Path
 from decouple import config, Csv
-from django.conf import settings
 
 ENV = config('ENV', default='dev')
 
@@ -71,13 +70,6 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'lugares_seguros.urls'
-
-#settings.configure(
-# ...
-#    ROOT_URLCONF='lugares_seguros.urls',
-# ...
-#    ),
-
 
 TEMPLATES = [
     {
