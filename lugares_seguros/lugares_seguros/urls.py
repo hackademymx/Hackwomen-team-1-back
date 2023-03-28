@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import include, path
 from django.conf import settings
 from django.conf.urls.static import static
-from lugares_seguros.settings.base import *
+#from lugares_seguros.settings.base import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,5 +25,4 @@ urlpatterns = [
     path('places/', include('places.urls')),
     path('comments/', include('comments.urls')),
     path('auth/', include('users.urls')),
-   # path('lugares_seguros/', include('lugares_seguros.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

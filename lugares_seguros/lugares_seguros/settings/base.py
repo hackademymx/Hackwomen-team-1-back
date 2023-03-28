@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 import os
 from pathlib import Path
 from decouple import config, Csv
-import dj_database_url
+
 
 ENV = config('ENV', default='dev')
 
@@ -25,12 +25,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-#####SECRET_KEY = config('DJANGO_SECRET_KEY', default='change_this_in_production!')
-SECRET_KEY = os.environ.get('SECRET_KEY', default='your secret key')
+SECRET_KEY = config('DJANGO_SECRET_KEY', default='change_this_in_production!')
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
-#####DEBUG = config('DEBUG', default=False, cast=bool)
-DEBUG = 'RENDER' not in os.environ
+DEBUG = config('DEBUG', default=False, cast=bool)
+
 
 #####ALLOWED_HOSTS = config('DJANGO_ALLOWED_HOSTS', cast=Csv(), default='*')
 DEBUG = config('DEBUG', default=False, cast=bool)
@@ -46,7 +46,7 @@ CSRF_TRUSTED_ORIGINS = config('CSRF_TRUSTED_ORIGINS', cast=Csv(), default='')
 
 CSRF_COOKIE_SECURE = config('CSRF_COOKIE_SECURE', default=False, cast=bool)
 
-DJANGO_SETTINGS_MODULE = 'lugares_seguros.settings'
+
 
 # Application definition
 
@@ -64,10 +64,11 @@ INSTALLED_APPS = [
     'places',
     'comments',
     'users',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -77,7 +78,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'places.urls'
+ROOT_URLCONF = 'lugares_seguros.urls'
 
 
 TEMPLATES = [
