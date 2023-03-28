@@ -79,7 +79,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'lugares_seguros.urls'
+ROOT_URLCONF = 'places.urls'
 
 
 TEMPLATES = [
