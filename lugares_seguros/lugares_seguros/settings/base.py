@@ -29,7 +29,7 @@ SECRET_KEY = config('DJANGO_SECRET_KEY', default='change_this_in_production!')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', default=True, cast=bool)
+DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = config('DJANGO_ALLOWED_HOSTS', cast=Csv(), default='*')
 
